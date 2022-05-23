@@ -4,9 +4,12 @@ def get_quote():
     
     url = 'https://breaking-bad-quotes.herokuapp.com/v1/quotes'
     
-    response = requests.get(url).json()
+    response = requests.get(url).json()[0]
     
-    return response[0]
+    quote = response['quote']
+    author = response['author']
+    
+    return quote, author
 
 
 if __name__=='__main__':
